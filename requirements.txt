@@ -17,7 +17,7 @@ pbr==1.9.1
 Pillow==3.1.1
 python-dateutil==2.4.2
 requests==2.9.1
-reusable-blog-app==1.0.0
+git+https://github.com/aaronsnig501/reusable-blog-app.git
 six==1.10.0
 sqlparse==0.1.19
 stripe==1.32.2
