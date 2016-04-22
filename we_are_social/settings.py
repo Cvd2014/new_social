@@ -158,7 +158,7 @@ PAYPAL_NOTIFY_URL = 'https://291e2d8f.ngrok.io/a-very-hard-to-guess-url/'
 PAYPAL_RECEIVER_EMAIL = 'aaron@codeinstitute.net'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 

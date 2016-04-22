@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from home import views
+from home import views as home_views
 from paypal.standard.ipn import urls as paypal_urls
 from paypal_store import views as paypal_views
 from products import views as product_views
@@ -24,10 +24,11 @@ from accounts.views import register, profile, login, logout, cancel_subscription
 from threads import views as forum_views
 from poll import api_views as poll_api
 from threads import api_views as thread_api
+from django.contrib.staticfiles import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.get_index),
+    url(r'^$', home_views.get_index),
 
     # Auth URLs
     url(r'^pages/', include('django.contrib.flatpages.urls')),
@@ -63,6 +64,8 @@ urlpatterns = [
 
     #Api_url
     url(r'^threads/polls/$', poll_api.PollViewSet.as_view()),
-    url(r'^threads/$', thread_api.ThreadViewSet.as_view())
+    url(r'^threads/$', thread_api.ThreadViewSet.as_view()),
+
+    url(r'^static/(?P<path>.*)$', views.serve),
 
 ]
